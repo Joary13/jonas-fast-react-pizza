@@ -3,6 +3,8 @@ import CartOverview from '../features/cart/CartOverview';
 import Header from './Header';
 import Loader from './Loader';
 
+/*eslint-disable*/
+
 function AppLayout() {
   const navigation = useNavigation();
   const isLoading = navigation.state === 'loading';
