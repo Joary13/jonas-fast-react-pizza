@@ -9,7 +9,7 @@ function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
-  console.log(cart);
+  // console.log(cart);
 
   function handleAddToCart() {
     // console.log(id);
