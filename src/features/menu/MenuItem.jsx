@@ -3,6 +3,7 @@ import Button from '../../ui/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, getCurrentQuantityById } from '../cart/cartSlice';
 import DeleteItem from '../cart/DeleteItem';
+import UpdateItemQuantity from '../cart/UpdateItemQuantity';
 // import { addItem } from '../cart/cartSlice';
 /* eslint-disable*/
 
@@ -29,7 +30,10 @@ function MenuItem({ pizza }) {
   return (
     <li className="flex gap-4 py-2">
       <img
-        src={imageUrl}
+        // src={imageUrl}
+        src={
+          'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        }
         alt={name}
         className={`h-24 ${soldOut ? 'opacity-70 grayscale' : ''}`}
       />
@@ -46,7 +50,12 @@ function MenuItem({ pizza }) {
               Sold out
             </p>
           )}
-          {isInCart && <DeleteItem id={id} />}
+          {isInCart && (
+            <div className="flex items-center gap-3 sm:gap-8">
+              <UpdateItemQuantity pizzaId={id} currentQuantity={currQuantity} />
+              <DeleteItem id={id} />
+            </div>
+          )}
           {!soldOut && !isInCart && (
             <Button type="small" onClick={handleAddToCart}>
               Add to cart
